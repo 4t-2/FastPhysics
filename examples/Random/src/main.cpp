@@ -55,7 +55,7 @@ int main()
 
 		float size = (((float)rand() / (float)RAND_MAX) * 10) + 10;
 
-		size = 10;
+		// size = 10;
 
 		phySim.addCircle(agl::Vec<float, 2>{WIDTH / 2., HEIGHT / 2.} +
 							 (position * (400 * ((float)rand() / (float)RAND_MAX))),
@@ -63,6 +63,11 @@ int main()
 	}
 
 	float clickDown = false;
+
+	float size = 50;
+	phySim.getCircleVec()[0].position = {0, 0};
+	phySim.getCircleVec()[0].radius = size;
+	phySim.getCircleVec()[0].mass = size * size;
 
 	while (!event.windowClose())
 	{
@@ -88,6 +93,23 @@ int main()
 		else
 		{
 			clickDown = false;
+		}
+
+		if(event.isKeyPressed(XK_Left))
+		{
+			phySim.getCircleVec()[0].force.x -= 160;
+		}
+		if(event.isKeyPressed(XK_Right))
+		{
+			phySim.getCircleVec()[0].force.x += 160;
+		}
+		if(event.isKeyPressed(XK_Up))
+		{
+			phySim.getCircleVec()[0].force.y -= 160;
+		}
+		if(event.isKeyPressed(XK_Down))
+		{
+			phySim.getCircleVec()[0].force.y += 160;
 		}
 	}
 

@@ -1,4 +1,6 @@
-#include "../lib/AGL/agl.hpp"
+#define AGLDIR "../lib/AGL/agl.hpp"
+
+#include AGLDIR
 
 namespace phy
 {
@@ -68,12 +70,13 @@ namespace phy
 		private:
 			std::vector<Circle> circleVec;
 			// std::vector<Rectangle> rectangleVec;
-			agl::Circle	   &circleShape;
+			agl::Circle &circleShape;
 			// agl::Rectangle &rectangleShape;
 
 		public:
-			Environment(agl::Circle &circleShape)
-				: circleShape(circleShape)
+			float density = 0.1; // keep between 1 and 0
+
+			Environment(agl::Circle &circleShape) : circleShape(circleShape)
 			{
 			}
 

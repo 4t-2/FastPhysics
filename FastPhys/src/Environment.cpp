@@ -1,4 +1,5 @@
 #include "../inc/Environment.hpp"
+#include <cmath>
 
 void phy::Circle::update()
 {
@@ -41,6 +42,12 @@ void phy::Environment::update()
 
 		for (int x = i + 1; x < circleVec.size(); x++)
 		{
+			// drag
+
+			circle.force -= circle.velocity * density;
+
+			// collision
+
 			Circle &otherCircle = circleVec[x];
 
 			if (&otherCircle == &circle)
