@@ -1,3 +1,5 @@
+#pragma once
+
 #define AGLDIR "../lib/AGL/agl.hpp"
 
 #include AGLDIR
